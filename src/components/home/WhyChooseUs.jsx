@@ -22,85 +22,130 @@ export function WhyChooseUs() {
       const title = secEl.querySelector(".why-choose-us__title");
       const rows = listEl.querySelectorAll(".why-choose-us__row");
 
-      // 1. Heading reveals first
-      if (title) {
-        gsap.from(title, {
-          y: MOTION.yHeading,
-          opacity: 0,
-          duration: DUR.textHeading,
-          ease: EASE.focus,
-          clearProps: "transform,opacity",
-          scrollTrigger: {
-            trigger: secEl,
-            start: "top 85%",
-            once: true
-          }
-        });
-      }
+      const mm = gsap.matchMedia();
 
-      // 2. Ledger rows stagger in
-      if (rows.length) {
-        gsap.from(rows, {
-          y: MOTION.yCard,
-          opacity: 0,
-          duration: DUR.card,
-          stagger: 0.08,
-          ease: EASE.focus,
-          clearProps: "transform,opacity",
-          scrollTrigger: {
-            trigger: listEl,
-            start: "top 85%",
-            once: true
-          }
-        });
-      }
+      // -----------------------------------------------------------------------
+      // MOBILE (< 900px): CUT ALL ANIMATIONS COMPLETELY
+      // Content, numbers, and images remain immediately visible, fast, and static.
+      // -----------------------------------------------------------------------
+      mm.add("(max-width: 899px)", () => {
+        // No ScrollTriggers or tween offsets on mobile. Pure static layout.
+      });
 
-      // 3. Vertical progress bar scrub
-      if (progressLine) {
-        ScrollTrigger.create({
-          trigger: listEl,
-          start: "top 70%",
-          end: "bottom 70%",
-          scrub: 1,
-          onUpdate: (self) => {
-            gsap.set(progressLine, { scaleY: self.progress });
-          }
-        });
-      }
+      // -----------------------------------------------------------------------
+      // DESKTOP (>= 900px): RICH SUBSECTION-BY-SUBSECTION SCROLL REVEAL
+      // Text and images reveal distinctly as the user scrolls into each row.
+      // -----------------------------------------------------------------------
+      mm.add("(min-width: 900px)", () => {
+        // 1. Heading reveals smoothly
+        if (title) {
+          gsap.from(title, {
+            y: MOTION.yHeading,
+            opacity: 0,
+            duration: DUR.textHeading,
+            ease: EASE.focus,
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: secEl,
+              start: "top 82%",
+              once: true
+            }
+          });
+        }
 
-      // 4. Highlight active subsection as user scrolls through
-      rows.forEach((row) => {
-        const node = row.querySelector(".why-choose-us__node");
-        const thumb = row.querySelector(".why-choose-us__thumb");
+        // 2. Individual sub-section scroll reveal (Text & Image reveal on scroll into each row)
+        rows.forEach((row) => {
+          const num = row.querySelector(".why-choose-us__num");
+          const content = row.querySelector(".why-choose-us__content");
+          const thumb = row.querySelector(".why-choose-us__thumb");
+          const node = row.querySelector(".why-choose-us__node");
 
-        ScrollTrigger.create({
-          trigger: row,
-          start: "top 65%",
-          end: "bottom 35%",
-          onToggle: (self) => {
-            if (self.isActive) {
-              row.classList.add("is-active");
-              if (node) {
-                gsap.to(node, {
-                  scale: 1.3,
-                  backgroundColor: "#06201A",
-                  duration: 0.3,
-                  ease: "power2.out"
-                });
+          // Row reveal timeline: triggers as each individual row enters reading zone
+          const rowTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: row,
+              start: "top 78%",
+              toggleActions: "play none none reverse"
+            }
+          });
+
+          // Text & numeral reveal smoothly from bottom
+          if (num && content) {
+            rowTl.fromTo(
+              [num, content],
+              { y: 36, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.65,
+                stagger: 0.08,
+                ease: "power2.out"
               }
-            } else {
-              row.classList.remove("is-active");
-              if (node) {
-                gsap.to(node, {
-                  scale: 1,
-                  backgroundColor: "rgba(6, 32, 26, 0.25)",
-                  duration: 0.3,
-                  ease: "power2.out"
-                });
+            );
+          }
+
+          // Relatable square image slides in smoothly from the right
+          if (thumb) {
+            rowTl.fromTo(
+              thumb,
+              { x: 52, opacity: 0, scale: 0.92 },
+              {
+                x: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 0.75,
+                ease: "power2.out"
+              },
+              "-=0.45"
+            );
+          }
+
+          // 3. Highlight active subsection & checkpoint node as user reads through
+          ScrollTrigger.create({
+            trigger: row,
+            start: "top 55%",
+            end: "bottom 45%",
+            onToggle: (self) => {
+              if (self.isActive) {
+                row.classList.add("is-active");
+                if (node) {
+                  gsap.to(node, {
+                    scale: 1.4,
+                    backgroundColor: "#06201A",
+                    duration: 0.3,
+                    ease: "power2.out"
+                  });
+                }
+              } else {
+                row.classList.remove("is-active");
+                if (node) {
+                  gsap.to(node, {
+                    scale: 1,
+                    backgroundColor: "rgba(6, 32, 26, 0.25)",
+                    duration: 0.3,
+                    ease: "power2.out"
+                  });
+                }
               }
             }
-          }
+          });
         });
+
+        // 4. Vertical progress bar scrub along the rail
+        if (progressLine) {
+          ScrollTrigger.create({
+            trigger: listEl,
+            start: "top 70%",
+            end: "bottom 60%",
+            scrub: 0.6,
+            onUpdate: (self) => {
+              gsap.set(progressLine, { scaleY: self.progress });
+            }
+          });
+        }
+
+        // Refresh triggers once mounted to ensure accurate page offsets
+        ScrollTrigger.refresh();
       });
     },
     { scope: sectionRef }
