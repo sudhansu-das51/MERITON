@@ -1,0 +1,125 @@
+/* FaqList */
+.faq-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-list--empty {
+  padding-top: var(--space-4);
+}
+
+/* Grouped View (All category + no query) */
+.faq-groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  width: 100%;
+}
+
+.faq-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.faq-group__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-group__title {
+  color: var(--cta);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.faq-group__index {
+  color: var(--muted);
+}
+
+.faq-group__count {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+/* Flat List View (Filtered or Searched) */
+.faq-flat-list {
+  width: 100%;
+}
+
+/* FAQ Item Inner Elements */
+.faq-item__title-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.faq-item__badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--cta);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.faq-item__question {
+  color: inherit;
+}
+
+.faq-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-1);
+}
+
+.faq-item__answer {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.faq-item__link-wrap {
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-1);
+}
+
+.faq-item__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--cta);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.faq-item__link:hover {
+  opacity: 0.8;
+}
+
+.faq-item__link:focus-visible {
+  outline: 2px solid var(--cta);
+  outline-offset: 2px;
+}

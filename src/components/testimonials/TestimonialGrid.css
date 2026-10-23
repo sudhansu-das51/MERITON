@@ -1,0 +1,40 @@
+/* TestimonialGrid (CSS Columns Masonry) */
+.testimonial-grid {
+  column-count: 3;
+  column-gap: var(--space-6);
+  width: 100%;
+}
+
+.testimonial-grid__item {
+  break-inside: avoid;
+  margin-bottom: var(--space-6);
+  display: block;
+  width: 100%;
+}
+
+.testimonial-grid__empty-wrapper {
+  padding: var(--space-12) 0;
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .testimonial-grid {
+    column-count: 2;
+    column-gap: var(--space-5);
+  }
+
+  .testimonial-grid__item {
+    margin-bottom: var(--space-5);
+  }
+}
+
+@media (max-width: 767px) {
+  .testimonial-grid {
+    column-count: 1;
+    column-gap: 0;
+  }
+
+  .testimonial-grid__item {
+    margin-bottom: var(--space-4);
+  }
+}

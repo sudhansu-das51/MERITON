@@ -1,0 +1,74 @@
+/* JobApplicationForm */
+.job-application-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.job-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.job-form__col {
+  width: 100%;
+}
+
+.job-form__note-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.job-form__char-count {
+  display: flex;
+  justify-content: flex-end;
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.job-form__feedback {
+  margin-top: var(--space-3);
+}
+
+.job-form__mailto-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+}
+
+.job-form__mailto-text {
+  color: var(--text);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+.job-form__mailto-link {
+  color: var(--cta);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 0.875rem;
+  letter-spacing: 0.03em;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.job-form__mailto-link:hover {
+  opacity: 0.8;
+}
+
+.job-form__mailto-link:focus-visible {
+  outline: 2px solid var(--cta);
+  outline-offset: 2px;
+}
+
+@media (max-width: 639px) {
+  .job-form__row {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}

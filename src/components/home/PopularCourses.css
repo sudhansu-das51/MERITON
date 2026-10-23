@@ -1,0 +1,360 @@
+/* ==========================================================================
+   PopularCourses Styles - Editorial Split Cards
+   - Left side: Thematic photography covering full height
+   - Right side: Editorial card surface with high-contrast typography
+   - Progress bar for seats filled, icons for meta info, and dual CTAs
+   - 2-column grid on desktop (>= 1100px)
+   ========================================================================== */
+
+.popular-courses {
+  position: relative;
+  background-color: var(--forest-900);
+}
+
+.popular-courses__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 1100px) {
+  .popular-courses__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Horizontal Course Card
+   -------------------------------------------------------------------------- */
+.course-hcard {
+  display: grid;
+  grid-template-columns: 36% 64%;
+  background-color: var(--forest-850);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--line);
+  transition: transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+              box-shadow 0.35s cubic-bezier(0.215, 0.61, 0.355, 1),
+              border-color 0.35s ease;
+  min-height: 280px;
+  min-width: 0;
+  height: 100%;
+}
+
+.course-hcard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--cta);
+}
+
+/* --------------------------------------------------------------------------
+   Left Side: Course Thematic Visual
+   -------------------------------------------------------------------------- */
+.course-hcard__media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  background-color: var(--forest-950);
+}
+
+.course-hcard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: transform;
+}
+
+.course-hcard:hover .course-hcard__img {
+  transform: scale(1.045);
+}
+
+.course-hcard__media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 32, 26, 0) 75%,
+    rgba(6, 32, 26, 0.4) 100%
+  );
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Right Side: Editorial Content
+   -------------------------------------------------------------------------- */
+.course-hcard__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  background-color: var(--forest-850);
+  color: var(--text);
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.course-hcard__top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Badge & Target Class Row */
+.course-hcard__badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.course-hcard__pill {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--forest-950);
+  color: var(--cta);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+}
+
+.course-hcard__target {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Title & Subtitle */
+.course-hcard__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.course-hcard__title {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: var(--text);
+  font-weight: 600;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.course-hcard__title-link {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.course-hcard__title-link:hover {
+  color: var(--cta);
+}
+
+.course-hcard__subtitle {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Meta info row with icons */
+.course-hcard__meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.course-hcard__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.course-hcard__meta-icon {
+  color: var(--cta);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Stats & CTAs
+   -------------------------------------------------------------------------- */
+.course-hcard__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  margin-top: auto;
+}
+
+/* Metrics: Seats Left + Fee */
+.course-hcard__metrics {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.course-hcard__metric-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  max-width: 140px;
+}
+
+.course-hcard__metric-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.course-hcard__metric-icon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.course-hcard__metric-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.course-hcard__metric-value {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.course-hcard__progress-track {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(220, 235, 227, 0.12);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-top: 3px;
+}
+
+.course-hcard__progress-fill {
+  height: 100%;
+  background-color: var(--cta);
+  border-radius: var(--radius-pill);
+  transition: width 0.8s ease;
+}
+
+.course-hcard__metric-col--fee {
+  text-align: right;
+  flex: 0 0 auto;
+}
+
+.course-hcard__fee-value {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cta);
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Actions Row: View Details & Enroll Now */
+.course-hcard__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 2px;
+}
+
+.course-hcard__details-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.course-hcard__details-link:hover {
+  gap: 8px;
+  color: var(--cta);
+}
+
+.course-hcard__enroll-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--cta);
+  color: var(--forest-950);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease,
+              transform 0.2s ease;
+}
+
+.course-hcard__enroll-btn:hover {
+  background-color: var(--cta-hover);
+  transform: translateY(-1px);
+}
+
+.course-hcard__enroll-btn:active {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptations
+   -------------------------------------------------------------------------- */
+@media (max-width: 539px) {
+  .course-hcard {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .course-hcard__media {
+    height: 190px;
+  }
+
+  .course-hcard__body {
+    padding: 20px;
+  }
+
+  .course-hcard__actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

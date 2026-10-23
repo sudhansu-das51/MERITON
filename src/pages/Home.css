@@ -1,0 +1,13 @@
+/* Home Page composition styles */
+.home-admissions-faq__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+
+@media (min-width: 900px) {
+  .home-admissions-faq__grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-16);
+  }
+}

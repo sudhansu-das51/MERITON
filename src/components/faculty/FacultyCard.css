@@ -1,0 +1,181 @@
+.faculty-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+  color: inherit;
+  font-family: inherit;
+  transition: border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.faculty-card:hover {
+  border-color: var(--cta);
+  background-color: var(--surface-raised);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.45),
+              0 0 0 1px rgba(200, 245, 90, 0.15);
+}
+
+.faculty-card:focus-visible {
+  outline: 2px solid var(--cta);
+  outline-offset: 2px;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.45),
+              0 0 0 1px rgba(200, 245, 90, 0.25);
+}
+
+/* Portrait Frame */
+.faculty-card__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--forest-950);
+}
+
+.faculty-card__photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: none;
+}
+
+/* Color Reveal & Smooth Image Interaction on Card Hover / Focus */
+.faculty-card:hover .img-frame--duotone .img-frame__image,
+.faculty-card:focus-visible .img-frame--duotone .img-frame__image {
+  filter: grayscale(0%) contrast(100%) brightness(100%);
+  transform: scale(1.05);
+}
+
+.faculty-card:hover .img-frame__overlay,
+.faculty-card:focus-visible .img-frame__overlay {
+  opacity: 0;
+}
+
+.faculty-card__tag {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  background-color: var(--forest-950);
+  border: 1px solid var(--line);
+  color: var(--cta);
+  font-size: 0.6875rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 2;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.faculty-card:hover .faculty-card__tag,
+.faculty-card:focus-visible .faculty-card__tag {
+  border-color: var(--cta);
+  background-color: rgba(6, 32, 26, 0.9);
+}
+
+/* Info */
+.faculty-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  flex: 1;
+}
+
+.faculty-card__name {
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  margin: 0;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease;
+}
+
+.faculty-card:hover .faculty-card__name {
+  color: var(--cta);
+}
+
+.faculty-card__qual {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  margin: 0;
+  flex: 1;
+}
+
+/* Footer & View profile action */
+.faculty-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.faculty-card__exp {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+.faculty-card__view-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.6875rem;
+  color: var(--cta);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.faculty-card:hover .faculty-card__view-action {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.faculty-card__arrow {
+  transition: transform 0.2s ease;
+}
+
+.faculty-card:hover .faculty-card__arrow {
+  transform: translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faculty-card,
+  .faculty-card__photo,
+  .img-frame__image,
+  .img-frame__overlay,
+  .faculty-card__view-action,
+  .faculty-card__arrow {
+    transition: none !important;
+    transform: none !important;
+  }
+  .faculty-card:hover .img-frame--duotone .img-frame__image,
+  .faculty-card:focus-visible .img-frame--duotone .img-frame__image {
+    filter: grayscale(0%) contrast(100%) brightness(100%);
+  }
+  .faculty-card:hover .img-frame__overlay,
+  .faculty-card:focus-visible .img-frame__overlay {
+    opacity: 0;
+  }
+}

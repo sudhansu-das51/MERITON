@@ -1,0 +1,33 @@
+/* CourseNotFound styles */
+.course-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding: var(--space-16) 0;
+  max-width: 60ch;
+}
+
+.course-not-found__label {
+  color: var(--cta);
+}
+
+.course-not-found__title {
+  color: var(--text);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.course-not-found__line {
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.course-not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}

@@ -1,0 +1,135 @@
+/* CourseBatchSchedule styles */
+.course-batches {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.course-batches__table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background-color: var(--forest-900);
+}
+
+.course-batches__table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.course-batches__table th {
+  padding: 14px 18px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background-color: var(--forest-950);
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.course-batches__table td {
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+.course-batches__table tr:last-child td {
+  border-bottom: none;
+}
+
+.course-batches__name {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.course-batches__mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.course-batches__seats-cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 120px;
+}
+
+.course-batches__seats-text {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.course-batches__seats-bar {
+  width: 100%;
+  height: 4px;
+  background-color: var(--forest-800);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.course-batches__seats-fill {
+  height: 100%;
+  background-color: var(--ice);
+  border-radius: var(--radius-pill);
+}
+
+/* Mobile Stacked Table */
+@media (max-width: 639px) {
+  .course-batches__table,
+  .course-batches__table tbody,
+  .course-batches__table tr,
+  .course-batches__table td {
+    display: block;
+    width: 100%;
+  }
+
+  .course-batches__table thead {
+    display: none;
+  }
+
+  .course-batches__table tr {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .course-batches__table tr:last-child {
+    border-bottom: none;
+  }
+
+  .course-batches__table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2) 0;
+    border-bottom: none;
+  }
+
+  .course-batches__table td::before {
+    content: attr(data-label);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-right: var(--space-4);
+  }
+
+  .course-batches__table td:last-child {
+    padding-top: var(--space-3);
+    justify-content: flex-end;
+  }
+
+  .course-batches__table td:last-child::before {
+    display: none;
+  }
+}

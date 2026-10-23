@@ -1,0 +1,161 @@
+/* JourneyTimeline styles */
+.journey-timeline {
+  padding: 0;
+}
+
+.journey-timeline__wrap {
+  position: relative;
+  margin-top: var(--space-10);
+  padding: var(--space-4) 0;
+}
+
+/* Spine line */
+.journey-timeline__spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--line);
+  z-index: 1;
+}
+
+.journey-timeline__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.journey-timeline__items {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.journey-timeline__row {
+  position: relative;
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.journey-timeline__row:last-child {
+  margin-bottom: 0;
+}
+
+/* Marker circle */
+.journey-timeline__marker {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--forest-950);
+  border: 2px solid var(--cta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  box-shadow: 0 0 10px rgba(210, 240, 75, 0.4);
+}
+
+.journey-timeline__marker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--cta);
+}
+
+/* Card */
+.journey-timeline__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: clamp(16px, 2.5vw, 24px);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  transition: border-color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+
+.journey-timeline__card:hover {
+  border-color: var(--cta);
+  transform: translateY(-2px);
+}
+
+.journey-timeline__year {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  line-height: 1;
+  color: var(--cta);
+  margin: 0;
+}
+
+.journey-timeline__title {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.journey-timeline__text {
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Desktop: Central line with alternating left/right layout (>= 900px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 900px) {
+  .journey-timeline__spine {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .journey-timeline__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+
+  .journey-timeline__marker {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .journey-timeline__row--left .journey-timeline__card {
+    grid-column: 1;
+    text-align: right;
+  }
+
+  .journey-timeline__row--right .journey-timeline__card {
+    grid-column: 2;
+    text-align: left;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile: Line on the left, entries on the right (< 900px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 899px) {
+  .journey-timeline__spine {
+    left: 16px;
+    transform: none;
+  }
+
+  .journey-timeline__row {
+    padding-left: 44px;
+  }
+
+  .journey-timeline__marker {
+    left: 16px;
+    top: 28px;
+    transform: translate(-50%, 0);
+  }
+
+  .journey-timeline__card {
+    text-align: left;
+  }
+}

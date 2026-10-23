@@ -1,0 +1,22 @@
+/* DownloadButton */
+.download-button {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  border-radius: var(--radius-md);
+}
+
+.download-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-button__text {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 500;
+}

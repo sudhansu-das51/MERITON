@@ -1,0 +1,47 @@
+/* NewsEvents Page Styles */
+.news-events-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.news-events-page__updates-section {
+  width: 100%;
+}
+
+.news-events-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.news-events-panel:focus-visible {
+  outline: none;
+}
+
+/* 3-column grid for Events & News (2-col tablet, 1-col mobile) */
+.news-events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .news-events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .news-events-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.news-events-grid__item {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}

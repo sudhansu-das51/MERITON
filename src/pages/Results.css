@@ -1,0 +1,163 @@
+.results-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Toppers Section (Lichen) */
+.results-toppers-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+.results-toppers-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .results-toppers-header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.results-year-tabs-wrap {
+  flex-shrink: 0;
+}
+
+/* High-contrast Year Tabs inside Toppers Section */
+.results-section--toppers .year-tabs .tabs__list {
+  background-color: rgba(6, 32, 26, 0.08);
+  border: 1px solid rgba(6, 32, 26, 0.2);
+  padding: 4px;
+}
+
+.results-section--toppers .year-tabs .tabs__tab {
+  color: var(--forest-900);
+  font-weight: 600;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.results-section--toppers .year-tabs .tabs__tab:hover {
+  opacity: 1;
+  color: var(--forest-950);
+}
+
+.results-section--toppers .year-tabs .tabs__tab--active {
+  color: var(--chartreuse) !important;
+  font-weight: 700;
+  opacity: 1;
+  z-index: 2;
+}
+
+.results-section--toppers .year-tabs .tabs__indicator {
+  background-color: var(--forest-950);
+  box-shadow: 0 2px 8px rgba(6, 32, 26, 0.25);
+}
+
+/* Controls Bar (Filter Chips + Summary Line) */
+.results-controls-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-bottom: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .results-controls-bar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.results-exam-chips-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: none;
+}
+
+.results-exam-chips-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+/* High-contrast Exam Filter Chips inside Toppers Section */
+.results-section--toppers .filter-chip {
+  background-color: var(--forest-950);
+  color: #f0f5f2;
+  border: 1px solid rgba(6, 32, 26, 0.3);
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(6, 32, 26, 0.12);
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.results-section--toppers .filter-chip:hover {
+  background-color: var(--forest-900);
+  color: #ffffff;
+  border-color: var(--forest-700);
+}
+
+.results-section--toppers .filter-chip--active {
+  background-color: var(--forest-950);
+  color: var(--chartreuse);
+  border-color: var(--chartreuse);
+  box-shadow: 0 0 0 1px var(--chartreuse), 0 4px 12px rgba(6, 32, 26, 0.2);
+  font-weight: 700;
+}
+
+.results-section--toppers .filter-chip__count {
+  color: rgba(240, 245, 242, 0.65);
+  font-weight: 500;
+}
+
+.results-section--toppers .filter-chip--active .filter-chip__count {
+  color: var(--chartreuse);
+  opacity: 0.95;
+}
+
+.results-summary-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.results-summary-selections {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.results-summary-sep {
+  opacity: 0.6;
+}
+
+.results-summary-best {
+  color: var(--forest-900);
+  font-weight: 600;
+}
+
+/* Awards Section */
+.results-awards-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+/* Achievements Section */
+.results-achievements-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 100%;
+}

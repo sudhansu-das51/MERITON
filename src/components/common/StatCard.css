@@ -1,0 +1,31 @@
+/* StatCard component */
+.stat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6) var(--space-4);
+  background-color: transparent;
+}
+
+.stat-card__hairline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--line);
+}
+
+.stat-card__value {
+  color: var(--cta);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.section--light .stat-card__value {
+  color: var(--forest-950);
+}
+
+.stat-card__label {
+  color: var(--text-muted);
+}

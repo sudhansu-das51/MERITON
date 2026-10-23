@@ -1,0 +1,38 @@
+/* SocialLinks Component */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.social-links__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  color: var(--text);
+  background-color: transparent;
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              background-color var(--dur-fast) var(--ease-out);
+}
+
+.social-links__item:hover {
+  color: var(--cta);
+  border-color: var(--cta);
+  background-color: var(--surface);
+}
+
+.section--light .social-links__item {
+  color: var(--forest-950);
+  border-color: var(--line-on-lichen);
+}
+
+.section--light .social-links__item:hover {
+  color: var(--forest-950);
+  border-color: var(--forest-950);
+  background-color: rgba(6, 32, 26, 0.08);
+}

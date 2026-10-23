@@ -1,0 +1,56 @@
+/* CTABanner styles */
+.cta-banner {
+  position: relative;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: var(--space-12) 0;
+  overflow: hidden;
+}
+
+.cta-banner__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 900px) {
+  .cta-banner__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.cta-banner__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: 60ch;
+}
+
+.cta-banner__title {
+  color: var(--text);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.cta-banner__line {
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cta-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+
+.cta-banner__ticks {
+  display: none;
+}

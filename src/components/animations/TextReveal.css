@@ -1,0 +1,31 @@
+/* TextReveal styles */
+.text-reveal {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.text-reveal__inner {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.text-reveal__wrap {
+  display: inline-flex;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.text-reveal__word {
+  display: inline-block;
+  will-change: transform;
+}
+
+.text-reveal__italic {
+  font-style: italic;
+  font-family: var(--font-display);
+  color: var(--cta);
+}
+
+.section--light .text-reveal__italic {
+  color: var(--forest-950);
+}

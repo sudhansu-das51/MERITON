@@ -1,0 +1,101 @@
+/* ImageWithFallback Component */
+.img-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--forest-800);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+}
+
+.img-frame__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, filter;
+}
+
+.img-frame__image--loaded {
+  opacity: 1;
+}
+
+/* Duotone Treatment */
+.img-frame--duotone .img-frame__image {
+  filter: grayscale(100%) contrast(108%) brightness(92%);
+}
+
+.img-frame__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--forest-900);
+  mix-blend-mode: color;
+  opacity: 0.65;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+/* Designed Marks-Sheet Placeholder */
+.img-frame__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--forest-800);
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.img-frame__grid {
+  position: absolute;
+  inset: 0;
+  background-size: 20px 20px;
+  background-image:
+    linear-gradient(to right, rgba(220, 235, 227, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(220, 235, 227, 0.04) 1px, transparent 1px);
+  pointer-events: none;
+}
+
+.img-frame__corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--cta);
+  pointer-events: none;
+}
+
+.img-frame__corner--tl {
+  top: 8px;
+  left: 8px;
+  border-top: 1px solid var(--cta);
+  border-left: 1px solid var(--cta);
+}
+
+.img-frame__corner--br {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 1px solid var(--cta);
+  border-right: 1px solid var(--cta);
+}
+
+.img-frame__label {
+  position: relative;
+  z-index: 1;
+  color: var(--sage);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  padding: 4px 8px;
+  border: 1px solid rgba(220, 235, 227, 0.08);
+  background-color: rgba(6, 32, 26, 0.6);
+  border-radius: var(--radius-sm);
+  max-width: 85%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

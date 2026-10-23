@@ -1,0 +1,116 @@
+/* Button component */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  transition: transform var(--dur-fast) var(--ease-out),
+              background-color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn__arrow {
+  display: inline-flex;
+  align-items: center;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.btn:hover:not(:disabled) .btn__arrow {
+  transform: translateX(4px);
+}
+
+/* Primary variant */
+.btn--primary {
+  background-color: var(--cta);
+  color: var(--cta-text);
+  border-color: var(--cta);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background-color: var(--cta-hover);
+  border-color: var(--cta-hover);
+}
+
+.btn--primary:active:not(:disabled) {
+  background-color: var(--cta-active);
+  border-color: var(--cta-active);
+}
+
+/* Secondary variant */
+.btn--secondary {
+  background-color: transparent;
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--text);
+  color: var(--forest-950);
+}
+
+/* On-light variant (for lichen sections) */
+.btn--on-light {
+  background-color: var(--forest-900);
+  color: var(--chartreuse);
+  border-color: var(--forest-900);
+}
+
+.btn--on-light:hover:not(:disabled) {
+  background-color: var(--forest-800);
+  border-color: var(--forest-800);
+}
+
+/* Link variant */
+.btn--link {
+  min-height: auto;
+  padding: 0;
+  background-color: transparent;
+  color: var(--cta);
+  border: none;
+  font-weight: 500;
+}
+
+.btn--link:hover:not(:disabled) {
+  color: var(--cta-hover);
+  text-decoration: underline;
+}
+
+/* Sizes */
+.btn--sm {
+  min-height: 36px;
+  padding: 6px 14px;
+  font-size: 0.8125rem;
+}
+
+.btn--lg {
+  min-height: 52px;
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.btn--disabled,
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}

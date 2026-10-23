@@ -1,0 +1,95 @@
+/* FacultyPreview styles */
+.faculty-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .faculty-preview__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.faculty-preview__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.faculty-preview__card:hover {
+  transform: translateY(-4px);
+}
+
+.faculty-preview__photo-container {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faculty-preview__card:hover .faculty-preview__photo-container {
+  border-color: var(--forest-950);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.25);
+}
+
+.faculty-preview__photo img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faculty-preview__card:hover .faculty-preview__photo img,
+.faculty-preview__card:hover .img-frame--duotone .img-frame__image {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(100%) brightness(100%);
+}
+
+.faculty-preview__card:hover .img-frame__overlay {
+  opacity: 0;
+}
+
+.faculty-preview__tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 12px;
+  background-color: var(--forest-950);
+  color: var(--chartreuse);
+  transform: translateY(100%);
+  transition: transform var(--dur-fast) var(--ease-out);
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.faculty-preview__card:hover .faculty-preview__tag {
+  transform: translateY(0);
+}
+
+.faculty-preview__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.faculty-preview__name {
+  color: var(--forest-950);
+  line-height: 1.15;
+}
+
+.faculty-preview__subject {
+  color: var(--forest-950);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.faculty-preview__qual {
+  color: var(--lichen-muted);
+  line-height: 1.4;
+  margin-top: 2px;
+}

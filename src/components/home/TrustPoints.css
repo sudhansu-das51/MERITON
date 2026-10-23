@@ -1,0 +1,38 @@
+/* TrustPoints styles */
+.trust-points {
+  position: relative;
+  background-color: var(--forest-950);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 0;
+}
+
+.trust-points__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .trust-points__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.trust-points__cell {
+  border-right: 1px solid var(--line);
+  padding: var(--space-4) 0;
+}
+
+.trust-points__cell:nth-child(2n) {
+  border-right: none;
+}
+
+@media (min-width: 900px) {
+  .trust-points__cell:nth-child(2n) {
+    border-right: 1px solid var(--line);
+  }
+  .trust-points__cell:last-child {
+    border-right: none;
+  }
+}

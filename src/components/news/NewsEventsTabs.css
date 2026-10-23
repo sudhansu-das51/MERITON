@@ -1,0 +1,5 @@
+/* NewsEventsTabs wrapper */
+.news-events-tabs {
+  margin-bottom: var(--space-8);
+  width: 100%;
+}

@@ -1,0 +1,42 @@
+/* CourseEligibility styles */
+.course-eligibility {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.course-eligibility__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.course-eligibility__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background-color: var(--forest-900);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.course-eligibility__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--cta);
+  margin-top: 2px;
+}
+
+.course-eligibility__text {
+  color: var(--text);
+  line-height: 1.5;
+  margin: 0;
+}

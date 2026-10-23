@@ -1,0 +1,58 @@
+/* TopBar styles - Desktop only */
+.top-bar {
+  display: none;
+  background-color: var(--forest-950);
+  border-bottom: 1px solid var(--line);
+  color: var(--text-muted);
+  font-size: var(--text-label);
+  height: 40px;
+}
+
+@media (min-width: 900px) {
+  .top-bar {
+    display: block;
+  }
+}
+
+.top-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.top-bar__announcement {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--cta);
+}
+
+.top-bar__tick {
+  width: 6px;
+  height: 6px;
+  background-color: var(--cta);
+  border-radius: 1px;
+}
+
+.top-bar__contacts {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.top-bar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--text-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.top-bar__link:hover {
+  color: var(--cta);
+}
+
+.top-bar__sep {
+  color: var(--line);
+}

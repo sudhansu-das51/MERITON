@@ -1,0 +1,32 @@
+/* FormFeedback styles */
+.form-feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+}
+
+.form-feedback--success {
+  background-color: rgba(61, 220, 151, 0.12);
+  border-color: rgba(61, 220, 151, 0.35);
+  color: var(--success);
+}
+
+.form-feedback--error {
+  background-color: rgba(255, 107, 107, 0.12);
+  border-color: rgba(255, 107, 107, 0.35);
+  color: var(--error);
+}
+
+.form-feedback__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.form-feedback__message {
+  line-height: 1.4;
+}

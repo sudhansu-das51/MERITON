@@ -1,0 +1,117 @@
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Enquiry Section (Lichen) */
+.contact-enquiry-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .contact-enquiry-grid {
+    grid-template-columns: 1fr 1.25fr;
+    gap: var(--space-12);
+  }
+}
+
+.contact-enquiry-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.contact-enquiry-line {
+  color: var(--muted);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contact-office-hours-wrap {
+  margin-top: var(--space-4);
+}
+
+/* Dark Form Panel on Lichen */
+.contact-form-panel {
+  background-color: var(--forest-900);
+  border: 1px solid var(--forest-700);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+
+  /* Restate dark tokens locally so inputs and feedback remain high-contrast on lichen */
+  --bg: var(--forest-900);
+  --surface: var(--forest-900);
+  --surface-raised: var(--forest-800);
+  --text: var(--mist);
+  --muted: var(--sage);
+  --line: var(--forest-700);
+  --line-light: rgba(220, 235, 227, 0.1);
+  --cta: var(--chartreuse);
+  --cta-text: var(--forest-950);
+}
+
+@media (min-width: 640px) {
+  .contact-form-panel {
+    padding: var(--space-8);
+  }
+}
+
+.contact-form-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-5);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-form-panel__title {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.contact-form-panel__badge {
+  font-size: 0.6875rem;
+  color: var(--cta);
+  background-color: var(--forest-950);
+  border: 1px solid var(--line);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Branches Section (Deep) */
+.contact-branches-heading {
+  margin-bottom: var(--space-8);
+}
+
+.contact-branches-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .contact-branches-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-10);
+  }
+}
+
+.contact-map-col {
+  width: 100%;
+}
+
+.contact-list-col {
+  width: 100%;
+}

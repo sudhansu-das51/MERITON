@@ -1,0 +1,390 @@
+/* MERITON Global Stylesheet & Design Tokens */
+@font-face {
+  font-family: "Kalhen";
+  src: url("/Kalhen.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Primitive Colors - Forest Palette */
+  --forest-950: #06201A;   /* deepest bg: hero, footer, modals */
+  --forest-900: #0A2E25;   /* main page background */
+  --forest-800: #0F3D32;   /* cards and raised surfaces */
+  --forest-700: #1A5242;   /* hover surfaces, borders, fills */
+  --lichen: #B9D1C3;       /* light-tone sections (dark text on it) */
+  --lichen-muted: #2D5545; /* secondary text on lichen */
+  --chartreuse: #D2F04B;   /* primary CTA, key numerals, focus on dark */
+  --chartreuse-hover: #E0F96A;
+  --chartreuse-active: #BFDC3A;
+  --ice: #8CD6E6;          /* secondary highlight: stats, tags, active tab */
+  --mist: #DCEBE3;         /* main text on dark (text only, never a background) */
+  --sage: #9DBBAE;         /* muted text on dark */
+  --line-on-dark: rgba(220, 235, 227, 0.14);
+  --line-on-lichen: rgba(6, 32, 26, 0.20);
+  --success: #3DDC97;
+  --error: #FF6B6B;
+
+  /* Semantic Default Tokens (Dark Forest Mode) */
+  --bg: var(--forest-900);
+  --bg-deep: var(--forest-950);
+  --surface: var(--forest-800);
+  --surface-hover: var(--forest-700);
+  --bg-light: var(--lichen);
+  --text: var(--mist);
+  --text-muted: var(--sage);
+  --text-on-light: var(--forest-950);
+  --text-on-light-muted: var(--lichen-muted);
+  --cta: var(--chartreuse);
+  --cta-hover: var(--chartreuse-hover);
+  --cta-active: var(--chartreuse-active);
+  --cta-text: var(--forest-950);
+  --highlight: var(--ice);
+  --line: var(--line-on-dark);
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+  /* Typography */
+  --font-display: "Kalhen", "Instrument Serif", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Font Sizes - Calibrated for readable hierarchy */
+  --text-display-xl: clamp(2.75rem, 5.5vw, 5rem);     /* 44 to 80px */
+  --text-display-l: clamp(2.25rem, 4vw, 3.5rem);      /* 36 to 56px */
+  --text-h2: clamp(2.125rem, 3.6vw, 3.25rem);           /* 34 to 52px */
+  --text-h3: clamp(1.125rem, 1.2vw + 0.5rem, 1.375rem); /* 18 to 22px */
+  --text-body: 1.0625rem;                              /* 17px */
+  --text-small: 0.875rem;                              /* 14px */
+  --text-label: 0.75rem;                               /* 12px */
+
+  /* Spacing Scale - 8px based */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Container & Section Padding */
+  --container-max: 1200px;
+  --container-pad: 20px;
+  --section-pad-y: 80px;
+
+  /* Radii */
+  --radius-sm: 4px;   /* inputs, chips, tags */
+  --radius-md: 6px;   /* buttons, small panels */
+  --radius-card: 8px; /* cards, dialogs */
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --dur-fast: 0.2s;
+  --dur-base: 0.45s;
+  --dur-slow: 0.8s;
+  --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --container-pad: 32px;
+    --section-pad-y: 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-pad: 40px;
+    --section-pad-y: 80px;
+  }
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--forest-950);
+  color: var(--mist);
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  background-color: var(--forest-900);
+  color: var(--mist);
+  overflow-x: hidden;
+}
+
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 2px solid var(--chartreuse);
+  outline-offset: 3px;
+}
+
+.section--light :focus-visible {
+  outline: 2px solid var(--forest-900);
+  outline-offset: 3px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  z-index: 9999;
+  background-color: var(--chartreuse);
+  color: var(--forest-950);
+  padding: 10px 16px;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 20px;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Base Elements */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Typography Utility Classes */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: var(--text-display-xl);
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.display-l {
+  font-family: var(--font-display);
+  font-size: var(--text-display-l);
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  line-height: 1.12;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+/* Card titles and clause headings use Hanken Grotesk 600 per D2 */
+.h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-h3);
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+.small {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.numeral {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Layout Containers & Sections */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+.section {
+  position: relative;
+  padding-top: var(--section-pad-y);
+  padding-bottom: var(--section-pad-y);
+  background-color: var(--bg);
+  color: var(--text);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Section Tones */
+.section--deep {
+  --bg: var(--forest-950);
+  --surface: var(--forest-800);
+  --surface-hover: var(--forest-700);
+  --text: var(--mist);
+  --text-muted: var(--sage);
+  --line: var(--line-on-dark);
+  --cta: var(--chartreuse);
+  --cta-text: var(--forest-950);
+  background-color: var(--forest-950);
+  color: var(--mist);
+}
+
+.section--main {
+  --bg: var(--forest-900);
+  --surface: var(--forest-800);
+  --surface-hover: var(--forest-700);
+  --text: var(--mist);
+  --text-muted: var(--sage);
+  --line: var(--line-on-dark);
+  --cta: var(--chartreuse);
+  --cta-text: var(--forest-950);
+  background-color: var(--forest-900);
+  color: var(--mist);
+}
+
+.section--raised {
+  --bg: var(--forest-800);
+  --surface: var(--forest-700);
+  --surface-hover: #226451;
+  --text: var(--mist);
+  --text-muted: var(--sage);
+  --line: var(--line-on-dark);
+  --cta: var(--chartreuse);
+  --cta-text: var(--forest-950);
+  background-color: var(--forest-800);
+  color: var(--mist);
+}
+
+/* Light Section (Lichen) - Re-maps tokens locally */
+.section--light {
+  --bg: var(--lichen);
+  --surface: rgba(6, 32, 26, 0.06);
+  --surface-hover: rgba(6, 32, 26, 0.12);
+  --text: var(--forest-950);
+  --text-muted: var(--lichen-muted);
+  --line: var(--line-on-lichen);
+  --cta: var(--forest-900);
+  --cta-hover: var(--forest-800);
+  --cta-text: var(--chartreuse);
+  background-color: var(--lichen);
+  color: var(--forest-950);
+}
+
+/* Surface Dark Scope - Re-establishes dark tokens for dark cards/panels inside light sections (D1) */
+.surface-dark,
+.section--light .surface-dark {
+  --bg: var(--forest-900);
+  --surface: var(--forest-800);
+  --surface-hover: var(--forest-700);
+  --text: var(--mist);
+  --text-muted: var(--sage);
+  --line: var(--line-on-dark);
+  --cta: var(--chartreuse);
+  --cta-hover: var(--chartreuse-hover);
+  --cta-active: var(--chartreuse-active);
+  --cta-text: var(--forest-950);
+  background-color: var(--forest-800);
+  color: var(--mist);
+}
+
+/* Tick Mark pseudo-element removed per D3 */
+.section--ticked::before {
+  display: none;
+}
+
+/* Global Reduced-Motion Block */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Touch device guard: Restrained motion, prevents sticky hover transforms on touch */
+@media (hover: none) or (pointer: coarse) {
+  .course-hcard:hover,
+  .course-card:hover,
+  .topper-card:hover,
+  .faculty-card:hover,
+  .faculty-preview__card:hover,
+  .award-card:hover,
+  .notice-item:hover,
+  .resource-card:hover,
+  .event-card:hover,
+  .news-card:hover,
+  .why-choose-us__row:hover,
+  .video-card:hover,
+  .testimonial-card:hover {
+    transform: none !important;
+  }
+}
+

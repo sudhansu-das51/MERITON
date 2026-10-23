@@ -1,0 +1,15 @@
+/* EnquiryForm styles */
+.enquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.enquiry-form__feedback {
+  margin-bottom: var(--space-2);
+}
+
+.enquiry-form__actions {
+  margin-top: var(--space-2);
+}

@@ -1,0 +1,49 @@
+/* PageTransition Component */
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-transition-overlay--active {
+  pointer-events: auto;
+}
+
+.page-transition-strips {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.page-transition-strip {
+  flex: 1;
+  height: 100%;
+  background-color: var(--forest-950);
+  transform: scaleY(0);
+  border-right: 1px solid rgba(220, 235, 227, 0.05);
+}
+
+.page-transition-label {
+  position: relative;
+  z-index: 2;
+  color: var(--cta);
+  font-size: var(--text-small);
+  letter-spacing: 0.15em;
+  padding: 8px 16px;
+  background-color: var(--forest-900);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-content {
+  position: relative;
+  min-height: 100vh;
+}

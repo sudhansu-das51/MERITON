@@ -1,0 +1,92 @@
+/* VisionMission styles */
+.vision-mission {
+  padding: 0;
+}
+
+.vision-mission__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .vision-mission__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+}
+
+.vision-mission__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  padding: clamp(24px, 3.5vw, 40px);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+
+.vision-mission__panel:hover {
+  transform: translateY(-2px);
+  border-color: var(--cta);
+}
+
+.vision-mission__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+  position: relative;
+  z-index: 1;
+}
+
+.vision-mission__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-muted);
+}
+
+.vision-mission__tick {
+  width: 6px;
+  height: 6px;
+  background-color: var(--cta);
+  border-radius: 50%;
+}
+
+.vision-mission__corner-tick {
+  display: none;
+}
+
+.vision-mission__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  line-height: 1.35;
+  color: var(--text);
+  font-weight: 400;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  max-width: 32ch;
+}
+
+.vision-mission__numeral {
+  position: absolute;
+  right: var(--space-6);
+  bottom: -0.15em;
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 10vw, 8.5rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text);
+  opacity: 0.12;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}

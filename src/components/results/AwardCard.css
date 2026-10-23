@@ -1,0 +1,103 @@
+.award-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--forest-900);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+  width: 100%;
+}
+
+.award-card:hover {
+  border-color: var(--cta);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.45),
+              0 0 0 1px rgba(200, 245, 90, 0.2);
+}
+
+.award-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--forest-950);
+}
+
+.award-card__photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: none;
+}
+
+/* Color Reveal on Hover */
+.award-card:hover .img-frame--duotone .img-frame__image {
+  filter: grayscale(0%) contrast(100%) brightness(100%);
+  transform: scale(1.05);
+}
+
+.award-card:hover .img-frame__overlay {
+  opacity: 0;
+}
+
+.award-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  flex: 1;
+}
+
+.award-card__year {
+  color: var(--cta);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.award-card__title {
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  margin: 0;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.award-card__issuer {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .award-card,
+  .award-card__photo,
+  .img-frame__image,
+  .img-frame__overlay {
+    transition: none !important;
+    transform: none !important;
+  }
+  .award-card:hover .img-frame--duotone .img-frame__image {
+    filter: grayscale(0%) contrast(100%) brightness(100%);
+  }
+  .award-card:hover .img-frame__overlay {
+    opacity: 0;
+  }
+}
+

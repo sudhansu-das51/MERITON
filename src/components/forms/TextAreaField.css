@@ -1,0 +1,63 @@
+/* TextAreaField styles */
+.textarea-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.textarea-field__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.textarea-field__label {
+  color: var(--text-muted);
+  font-size: var(--text-label);
+}
+
+.textarea-field__counter {
+  color: var(--text-muted);
+  font-size: 0.6875rem;
+}
+
+.textarea-field__required {
+  color: var(--cta);
+}
+
+.textarea-field__textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--forest-800);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 96px;
+  transition: border-color var(--dur-fast) var(--ease-out),
+              background-color var(--dur-fast) var(--ease-out);
+}
+
+.textarea-field__textarea::placeholder {
+  color: var(--sage);
+  opacity: 0.6;
+}
+
+.textarea-field__textarea:focus {
+  outline: none;
+  border-color: var(--cta);
+  background-color: #124538;
+}
+
+.textarea-field--error .textarea-field__textarea {
+  border-color: var(--error);
+}
+
+.textarea-field__error {
+  color: var(--error);
+  font-size: 0.8125rem;
+}

@@ -1,0 +1,279 @@
+/* ==========================================================================
+   WhyChooseUs Styles - Light tone section (Lichen)
+   Scrollytelling with:
+   - Sticky left heading
+   - Deliberate vertical progress rail with node checkpoints
+   - Horizontal subsection rows with large numerals, titles, metric tags
+   - Relatable square images sliding in smoothly from the right on scroll
+   ========================================================================== */
+
+.why-choose-us {
+  position: relative;
+  background-color: var(--lichen);
+  border-bottom: 1px solid var(--line-on-lichen);
+}
+
+.why-choose-us__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 900px) {
+  .why-choose-us__inner {
+    grid-template-columns: 0.75fr 1.25fr;
+    gap: clamp(36px, 4vw, 64px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Sticky Left Column
+   -------------------------------------------------------------------------- */
+.why-choose-us__left {
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .why-choose-us__sticky {
+    position: sticky;
+    top: 130px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+}
+
+.why-choose-us__eyebrow {
+  display: none !important;
+}
+
+.why-choose-us__tick {
+  display: none;
+}
+
+.why-choose-us__title {
+  color: var(--forest-950);
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+/* --------------------------------------------------------------------------
+   Right Column with Vertical Progress Rail & Rows
+   -------------------------------------------------------------------------- */
+.why-choose-us__right {
+  position: relative;
+  display: flex;
+  gap: clamp(16px, 2.2vw, 28px);
+}
+
+/* Progress Rail */
+.why-choose-us__rail {
+  width: 3px;
+  background-color: rgba(6, 32, 26, 0.15);
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 9999px;
+}
+
+.why-choose-us__rail-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: var(--forest-950);
+  transform-origin: top center;
+  transform: scaleY(0);
+  border-radius: 9999px;
+  will-change: transform;
+}
+
+/* Subsection Rows */
+.why-choose-us__list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-top: 1px solid var(--line-on-lichen);
+}
+
+.why-choose-us__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 68px 1fr 130px;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 32px);
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line-on-lichen);
+  transition: border-bottom-color 0.35s ease;
+}
+
+.why-choose-us__row:hover,
+.why-choose-us__row.is-active {
+  border-bottom-color: rgba(6, 32, 26, 0.4);
+}
+
+/* Node checkpoint on rail */
+.why-choose-us__node {
+  position: absolute;
+  left: calc(-1 * clamp(16px, 2.2vw, 28px) - 5px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: rgba(6, 32, 26, 0.25);
+  border: 2px solid var(--lichen);
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+              background-color 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Numerals */
+.why-choose-us__num {
+  color: var(--forest-950);
+  line-height: 0.9;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 3.5vw, 4rem);
+  font-variant-numeric: tabular-nums;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.why-choose-us__row:hover .why-choose-us__num {
+  transform: translateX(4px);
+}
+
+/* Content */
+.why-choose-us__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.why-choose-us__content-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.why-choose-us__row-title {
+  color: var(--forest-950);
+  line-height: 1.25;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 1.4vw, 1.45rem);
+  margin: 0;
+}
+
+.why-choose-us__row-line {
+  color: var(--lichen-muted);
+  font-size: clamp(0.875rem, 0.35vw + 0.8rem, 1rem);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.why-choose-us__metric {
+  color: var(--forest-950);
+  padding: 4px 12px;
+  background-color: rgba(6, 32, 26, 0.08);
+  border: 1px solid rgba(6, 32, 26, 0.14);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Square Relatable Image at the End of Row
+   -------------------------------------------------------------------------- */
+.why-choose-us__thumb {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid rgba(6, 32, 26, 0.16);
+  box-shadow: 0 10px 24px rgba(6, 32, 26, 0.12);
+  background-color: rgba(6, 32, 26, 0.08);
+  flex-shrink: 0;
+  margin-left: auto;
+  will-change: transform, opacity;
+}
+
+.why-choose-us__thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.why-choose-us__row:hover .why-choose-us__thumb-img {
+  transform: scale(1.06);
+}
+
+.why-choose-us__thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 32, 26, 0) 60%,
+    rgba(6, 32, 26, 0.15) 100%
+  );
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptations
+   -------------------------------------------------------------------------- */
+@media (max-width: 899px) {
+  .why-choose-us__row {
+    grid-template-columns: 56px 1fr 110px;
+    gap: 16px;
+    padding: 30px 0;
+  }
+
+  .why-choose-us__thumb {
+    width: 110px;
+    height: 110px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .why-choose-us__row {
+    grid-template-columns: 44px 1fr 88px;
+    gap: 12px;
+    padding: 22px 0;
+  }
+
+  .why-choose-us__thumb {
+    width: 88px;
+    height: 88px;
+    border-radius: 10px;
+  }
+
+  .why-choose-us__num {
+    font-size: 2.25rem;
+  }
+
+  .why-choose-us__row-title {
+    font-size: 1.25rem;
+  }
+
+  .why-choose-us__metric {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+}

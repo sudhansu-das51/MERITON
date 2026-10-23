@@ -1,0 +1,122 @@
+/* AdmissionStepsPreview styles */
+.admission-preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.admission-preview__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.admission-preview__eyebrow {
+  display: none !important;
+}
+
+.admission-preview__tick {
+  display: none;
+}
+
+.admission-preview__title {
+  color: var(--forest-950);
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 3.8vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+/* Timeline */
+.admission-preview__timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding-left: var(--space-2);
+}
+
+.admission-preview__line-wrap {
+  position: absolute;
+  top: 14px;
+  bottom: 24px;
+  left: 20px;
+  width: 2px;
+  pointer-events: none;
+}
+
+.admission-preview__svg-line {
+  width: 100%;
+  height: 100%;
+}
+
+.admission-preview__svg-path {
+  stroke: var(--forest-950);
+  stroke-width: 2;
+  stroke-dasharray: 2 4;
+}
+
+.admission-preview__step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  z-index: 1;
+}
+
+.admission-preview__step-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--forest-950);
+  color: var(--chartreuse);
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+
+.admission-preview__step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admission-preview__step-title {
+  color: var(--forest-950);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.25;
+}
+
+.admission-preview__step-text {
+  color: var(--lichen-muted);
+  line-height: 1.5;
+  max-width: 44ch;
+}
+
+.admission-preview__footer {
+  margin-top: var(--space-4);
+}
+
+.admission-preview__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--forest-950);
+  border-bottom: 1px solid var(--forest-950);
+  padding-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: gap var(--dur-fast) var(--ease-out);
+}
+
+.admission-preview__link:hover {
+  gap: var(--space-3);
+}

@@ -1,0 +1,454 @@
+/* ============================================================
+   MERITON - Section 03: Subjects Curriculum (Editorial Redesign)
+   Reference layout: Capsule button group header, Left Content & Right Visual Image
+   ============================================================ */
+
+.subjects-section {
+  position: relative;
+  background-color: var(--forest-950);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ============================================================
+   1. Section Header: Title Block & Capsule Button Row
+   ============================================================ */
+.subjects-header-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 960px) {
+  .subjects-header-bar {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.subjects-header-bar__title-block {
+  max-width: 600px;
+}
+
+.subjects-header-bar__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--chartreuse);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.subjects-header-bar__dash {
+  display: none;
+}
+
+.subjects-header-bar__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  color: var(--mist);
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.01em;
+}
+
+.subjects-header-bar__subtitle {
+  color: var(--sage);
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+/* Capsule Buttons Pill Strip */
+.subjects-capsules {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+@media (min-width: 640px) {
+  .subjects-capsules {
+    gap: 10px;
+  }
+}
+
+.subject-capsule-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: rgba(10, 46, 37, 0.5);
+  border: 1px solid rgba(220, 235, 227, 0.18);
+  color: var(--mist);
+  transition: all var(--dur-fast) var(--ease-out);
+  user-select: none;
+  min-height: 44px;
+}
+
+.subject-capsule-btn:hover {
+  background-color: rgba(15, 61, 50, 0.85);
+  border-color: rgba(210, 240, 75, 0.45);
+  color: var(--chartreuse);
+  transform: translateY(-1px);
+}
+
+.subject-capsule-btn:focus-visible {
+  outline: 2px solid var(--chartreuse);
+  outline-offset: 2px;
+}
+
+.subject-capsule-btn--active {
+  background-color: var(--chartreuse);
+  border-color: var(--chartreuse);
+  color: var(--forest-950);
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(210, 240, 75, 0.25);
+}
+
+.subject-capsule-btn--active:hover {
+  background-color: var(--chartreuse-hover);
+  border-color: var(--chartreuse-hover);
+  color: var(--forest-950);
+}
+
+/* ============================================================
+   2. Main Split Container Card
+   ============================================================ */
+.subject-split-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #06231C;
+  border: 1px solid rgba(220, 235, 227, 0.14);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 960px) {
+  .subject-split-card {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+
+/* Left Column */
+.subject-split__left {
+  padding: clamp(24px, 4vw, 44px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(220, 235, 227, 0.1);
+}
+
+@media (min-width: 960px) {
+  .subject-split__left {
+    border-bottom: none;
+    border-right: 1px solid rgba(220, 235, 227, 0.1);
+  }
+}
+
+.subject-split__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--chartreuse);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.subject-split__headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 2.7vw, 2.6rem);
+  color: var(--mist);
+  line-height: 1.15;
+  font-weight: 400;
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.01em;
+}
+
+.subject-split__desc {
+  color: var(--sage);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-8);
+  max-width: 540px;
+}
+
+/* Topic Rows */
+.subject-topics-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(220, 235, 227, 0.1);
+  margin-bottom: var(--space-6);
+}
+
+.subject-topic-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(220, 235, 227, 0.1);
+  align-items: center;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+
+@media (min-width: 600px) {
+  .subject-topic-row {
+    grid-template-columns: 1.4fr 1.6fr 0.9fr;
+    gap: var(--space-4);
+    padding: 18px 0;
+  }
+}
+
+.subject-topic-row:hover {
+  background-color: rgba(220, 235, 227, 0.02);
+}
+
+.subject-topic-row__lead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.subject-topic-row__num {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--chartreuse);
+  flex-shrink: 0;
+}
+
+.subject-topic-row__title {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--mist);
+  line-height: 1.3;
+}
+
+.subject-topic-row__desc {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: var(--sage);
+  line-height: 1.4;
+}
+
+.subject-topic-row__count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--sage);
+}
+
+@media (min-width: 600px) {
+  .subject-topic-row__count {
+    justify-content: flex-end;
+  }
+}
+
+/* Footer: Progress bar and syllabus link */
+.subject-split__footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+}
+
+@media (min-width: 600px) {
+  .subject-split__footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.subject-progress-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.subject-progress-track {
+  width: 120px;
+  height: 4px;
+  background-color: rgba(220, 235, 227, 0.12);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.subject-progress-fill {
+  height: 100%;
+  background-color: var(--chartreuse);
+  border-radius: var(--radius-pill);
+  transition: width 0.4s var(--ease-out);
+}
+
+.subject-progress-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--sage);
+  letter-spacing: 0.04em;
+}
+
+.subject-syllabus-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--chartreuse);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.subject-syllabus-link:hover {
+  transform: translateX(3px) translateY(-1px);
+}
+
+/* ============================================================
+   3. Right Column: Visual Image with Floating Overlay Card
+   ============================================================ */
+.subject-split__right {
+  position: relative;
+  min-height: 380px;
+  background-color: #031410;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+@media (min-width: 960px) {
+  .subject-split__right {
+    min-height: 100%;
+  }
+}
+
+.subject-split__image-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.subject-split__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.subject-split__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 32, 26, 0.15) 0%,
+    rgba(6, 32, 26, 0.35) 45%,
+    rgba(6, 32, 26, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+/* Floating Glassmorphic Stats Overlay */
+.subject-floating-stats {
+  position: relative;
+  z-index: 2;
+  margin: var(--space-4);
+  background: rgba(6, 32, 26, 0.90);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(220, 235, 227, 0.18);
+  border-radius: 12px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+}
+
+@media (min-width: 640px) {
+  .subject-floating-stats {
+    margin: var(--space-5);
+    padding: 16px 22px;
+  }
+}
+
+.subject-stat-col {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.subject-stat-col__icon {
+  color: var(--mist);
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+.subject-stat-col__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.subject-stat-col__val {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--mist);
+  line-height: 1.1;
+}
+
+.subject-stat-col__val--serif {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.subject-stat-col__lbl {
+  font-size: 0.72rem;
+  color: var(--sage);
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.subject-stat-divider {
+  width: 1px;
+  height: 28px;
+  background-color: rgba(220, 235, 227, 0.14);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   4. Reduced Motion Fallback
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .subject-capsule-btn,
+  .subject-topic-row,
+  .subject-progress-fill,
+  .subject-syllabus-link,
+  .subject-split__image,
+  .subject-floating-stats {
+    transition: none !important;
+    transform: none !important;
+  }
+}

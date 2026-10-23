@@ -1,0 +1,6 @@
+/* About page styles */
+.about-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

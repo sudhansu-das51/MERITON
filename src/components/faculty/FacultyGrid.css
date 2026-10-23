@@ -1,0 +1,32 @@
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .faculty-grid {
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .faculty-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 1280px) {
+  .faculty-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+}
+
+.faculty-grid__item {
+  display: flex;
+  height: 100%;
+  min-width: 0;
+}

@@ -1,0 +1,57 @@
+/* Faqs Page Styles */
+.faqs-page {
+  width: 100%;
+}
+
+.faqs-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+.faqs-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: 100%;
+}
+
+.faqs-results-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+}
+
+.faqs-results-count {
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+}
+
+.faqs-clear-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--cta);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.faqs-clear-btn:hover {
+  opacity: 0.8;
+}
+
+.faqs-clear-btn:focus-visible {
+  outline: 2px solid var(--cta);
+  outline-offset: 2px;
+}

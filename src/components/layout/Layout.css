@@ -1,0 +1,13 @@
+/* Layout styles */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--forest-900);
+}
+
+.layout__main {
+  flex: 1 0 auto;
+  width: 100%;
+}

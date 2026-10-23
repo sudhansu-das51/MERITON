@@ -1,0 +1,4 @@
+/* Reveal Animation */
+.reveal {
+  will-change: transform, opacity;
+}

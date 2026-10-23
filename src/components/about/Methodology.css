@@ -1,0 +1,124 @@
+/* Methodology styles */
+.methodology {
+  padding: 0;
+}
+
+.methodology__strip-wrap {
+  margin-top: var(--space-8);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background-color: var(--surface);
+  overflow: hidden;
+}
+
+.methodology__strip {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .methodology__strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.methodology__step {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(20px, 2.5vw, 32px);
+  min-height: 220px;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.methodology__step:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 900px) {
+  .methodology__step {
+    border-bottom: none;
+    border-right: 1px solid var(--line);
+  }
+
+  .methodology__step:last-child {
+    border-right: none;
+  }
+}
+
+.methodology__step:hover {
+  background-color: var(--surface-hover);
+}
+
+.methodology__step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.methodology__step-num {
+  color: var(--cta);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+}
+
+.methodology__connector {
+  color: var(--line);
+  display: flex;
+  align-items: center;
+}
+
+.methodology__step:hover .methodology__connector {
+  color: var(--cta);
+}
+
+.methodology__step-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.methodology__step-title {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.methodology__step-text {
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.methodology__step-footer {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+}
+
+.methodology__cadence {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.methodology__cadence-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--cta);
+}

@@ -1,0 +1,10 @@
+/* Resources Page Styles */
+.resources-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.resources-page__library-section {
+  width: 100%;
+}

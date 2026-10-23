@@ -1,0 +1,40 @@
+/* EmptyState styles */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-12) var(--space-6);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-md);
+  background-color: rgba(10, 46, 37, 0.35);
+  gap: var(--space-3);
+  margin: var(--space-8) 0;
+}
+
+.empty-state__label {
+  color: var(--cta);
+  letter-spacing: 0.1em;
+}
+
+.empty-state__title {
+  color: var(--text);
+  margin: 0;
+}
+
+.empty-state__line {
+  color: var(--text-muted);
+  max-width: 48ch;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.empty-state__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}

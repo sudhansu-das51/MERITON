@@ -1,0 +1,61 @@
+/* CourseDetails page styles */
+.course-details-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.course-details-content-section {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-16);
+}
+
+.course-details-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+@media (min-width: 900px) {
+  .course-details-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    align-items: flex-start;
+    gap: var(--space-12);
+  }
+}
+
+@media (min-width: 1200px) {
+  .course-details-layout {
+    grid-template-columns: 1fr 380px;
+    gap: var(--space-16);
+  }
+}
+
+.course-details-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  min-width: 0;
+}
+
+.course-details-sidebar-col {
+  display: block;
+}
+
+/* On mobile (<900px), hide sidebar col if we render it in-flow inside main column */
+@media (max-width: 899px) {
+  .course-details-sidebar-col {
+    display: none;
+  }
+
+  .course-details-sidebar-mobile {
+    display: block;
+    margin: var(--space-4) 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .course-details-sidebar-mobile {
+    display: none;
+  }
+}

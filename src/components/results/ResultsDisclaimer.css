@@ -1,0 +1,16 @@
+.results-disclaimer {
+  width: 100%;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+
+.results-disclaimer__text {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.results-disclaimer__text span {
+  color: var(--cta);
+}

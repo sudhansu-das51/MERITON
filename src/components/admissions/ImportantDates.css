@@ -1,0 +1,57 @@
+.important-dates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+.important-dates__ledger {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.important-dates__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  min-height: 72px;
+  box-sizing: border-box;
+}
+
+.important-dates__date-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.important-dates__day {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--cta);
+}
+
+.important-dates__month-year {
+  font-size: 0.6875rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.important-dates__info {
+  flex: 1;
+}
+
+.important-dates__label {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}

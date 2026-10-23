@@ -1,0 +1,121 @@
+/* TestimonialsPreview styles */
+.testimonials-preview__card {
+  background-color: var(--forest-800);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .testimonials-preview__card {
+    padding: var(--space-12);
+    gap: var(--space-12);
+  }
+}
+
+.testimonials-preview__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.testimonials-preview__index {
+  color: var(--cta);
+  font-size: var(--text-small);
+  letter-spacing: 0.1em;
+}
+
+/* Progress ticks */
+.testimonials-preview__ticks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.testimonials-preview__tick {
+  width: 24px;
+  height: 3px;
+  background-color: var(--line);
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.testimonials-preview__tick--active {
+  background-color: var(--cta);
+}
+
+.testimonials-preview__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.testimonials-preview__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  color: var(--text);
+  background-color: transparent;
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              background-color var(--dur-fast) var(--ease-out);
+}
+
+.testimonials-preview__btn:hover {
+  color: var(--cta);
+  border-color: var(--cta);
+  background-color: var(--forest-700);
+}
+
+/* Quote Wrap */
+.testimonials-preview__quote-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.testimonials-preview__quote {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  max-width: 52ch;
+}
+
+.testimonials-preview__author {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.testimonials-preview__name {
+  color: var(--text);
+}
+
+.testimonials-preview__meta {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.testimonials-preview__sep {
+  color: var(--line);
+}
+
+.testimonials-preview__result {
+  color: var(--cta);
+}

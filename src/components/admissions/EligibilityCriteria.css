@@ -1,0 +1,115 @@
+.eligibility-criteria {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+.eligibility-criteria__table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.eligibility-criteria__table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.eligibility-criteria__table th {
+  padding: 14px 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--line);
+  font-weight: 500;
+}
+
+.eligibility-criteria__table td {
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.eligibility-criteria__program-name {
+  color: var(--text);
+  font-size: 1.125rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  display: block;
+}
+
+.eligibility-criteria__classes {
+  color: var(--text);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}
+
+.eligibility-criteria__desc {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+.eligibility-criteria__badge {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* Mobile Stacked View */
+@media (max-width: 767px) {
+  .eligibility-criteria__table,
+  .eligibility-criteria__table thead,
+  .eligibility-criteria__table tbody,
+  .eligibility-criteria__table th,
+  .eligibility-criteria__table td,
+  .eligibility-criteria__table tr {
+    display: block;
+  }
+
+  .eligibility-criteria__table thead {
+    display: none;
+  }
+
+  .eligibility-criteria__row {
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  .eligibility-criteria__table td {
+    border-bottom: 1px solid var(--line);
+    padding: var(--space-3) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .eligibility-criteria__table td:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .eligibility-criteria__table td::before {
+    content: attr(data-label);
+    font-size: 0.6875rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+}

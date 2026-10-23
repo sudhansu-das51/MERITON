@@ -1,0 +1,251 @@
+/* ============================================================
+   Results Highlights Styles
+   - Continuous smooth horizontal right-to-left marquee auto-scroll
+   - Left side minimal blur/fade line
+   - Right side thick blur/fade gradient overlay
+   ============================================================ */
+
+.results-highlights {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--forest-900);
+}
+
+.results-highlights__layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  position: relative;
+}
+
+@media (min-width: 960px) {
+  .results-highlights__layout {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-8);
+  }
+}
+
+/* Left Intro Block */
+.results-highlights__intro {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  z-index: 2;
+}
+
+.results-highlights__stat-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.results-highlights__stat-val {
+  color: var(--cta);
+  line-height: 0.95;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+}
+
+.results-highlights__stat-lbl {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.results-highlights__note {
+  color: var(--text-muted);
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+/* Horizontal Strip Wrapper */
+.results-highlights__strip-wrap {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  padding: var(--space-2) 0;
+}
+
+/* ============================================================
+   Left & Right Blur / Gradient Overlays
+   ============================================================ */
+
+/* Left: Thin minimal layer blur line */
+.results-highlights__fade--left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 38px;
+  background: linear-gradient(
+    to right,
+    var(--forest-900) 25%,
+    rgba(10, 46, 37, 0.75) 65%,
+    transparent 100%
+  );
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  pointer-events: none;
+  z-index: 6;
+  border-left: 1px solid rgba(220, 235, 227, 0.12);
+}
+
+@media (min-width: 960px) {
+  .results-highlights__fade--left {
+    width: 44px;
+  }
+}
+
+/* Right: Thicker layer blur line */
+.results-highlights__fade--right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 90px;
+  background: linear-gradient(
+    to left,
+    var(--forest-900) 30%,
+    rgba(10, 46, 37, 0.85) 70%,
+    transparent 100%
+  );
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+  z-index: 6;
+}
+
+@media (min-width: 960px) {
+  .results-highlights__fade--right {
+    width: 150px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .results-highlights__fade--right {
+    width: 180px;
+  }
+}
+
+/* ============================================================
+   Horizontal Marquee Track (Right to Left Continuous Motion)
+   ============================================================ */
+.results-highlights__strip {
+  display: flex;
+  gap: var(--space-5);
+  width: max-content;
+  animation: marqueeToppers 34s linear infinite;
+  will-change: transform;
+}
+
+/* Pause smoothly on hover so user can read cards comfortably */
+.results-highlights__strip-wrap:hover .results-highlights__strip {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeToppers {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* ============================================================
+   Topper Card Styling
+   ============================================================ */
+.results-highlights__card {
+  width: 224px;
+  flex-shrink: 0;
+  background-color: var(--forest-800);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: all var(--dur-fast) var(--ease-out);
+  cursor: pointer;
+  user-select: none;
+}
+
+.results-highlights__card:hover {
+  border-color: var(--cta);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.results-highlights__photo-wrap {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--forest-950);
+  border: 1px solid rgba(220, 235, 227, 0.1);
+}
+
+.results-highlights__card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0 var(--space-1);
+}
+
+.results-highlights__rank {
+  color: var(--cta);
+  line-height: 1.1;
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  letter-spacing: -0.01em;
+}
+
+.results-highlights__name {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.results-highlights__meta {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.results-highlights__sep {
+  color: var(--line);
+  opacity: 0.6;
+}
+
+/* ============================================================
+   Accessibility / Reduced Motion Fallback
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .results-highlights__strip {
+    animation: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: auto;
+  }
+
+  .results-highlights__card {
+    scroll-snap-align: start;
+    transition: none;
+    transform: none;
+  }
+}

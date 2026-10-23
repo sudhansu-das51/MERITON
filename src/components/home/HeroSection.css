@@ -1,0 +1,220 @@
+/* ==========================================================================
+   HeroSection CSS - Editorial 50/50 Split Screen Layout
+   100% Viewport Screen-Fit (Zero Initial Scroll, Clean Center Divider)
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--forest-950);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  border-radius: 0 !important;
+  height: calc(100vh - 72px);
+  max-height: calc(100vh - 72px);
+  box-sizing: border-box;
+}
+
+/* 50/50 Equal Split Container across full viewport width */
+.hero-section__split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  align-items: stretch;
+  border-radius: 0 !important;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Editorial Typography & Actions (50% Width, Zero Curves)
+   -------------------------------------------------------------------------- */
+.hero-section__left {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(20px, 3vh, 40px) clamp(24px, 4vw, 56px);
+  background-color: var(--forest-950);
+  border-right: 1px solid var(--line);
+  box-sizing: border-box;
+  border-radius: 0 !important;
+  overflow: hidden;
+}
+
+.hero-section__text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cta);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: clamp(10px, 1.8vh, 18px);
+}
+
+.hero-section__headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 3.6vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin: 0 0 clamp(10px, 1.8vh, 18px) 0;
+  text-transform: uppercase;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.hero-section__headline em {
+  font-style: italic;
+  color: var(--cta);
+}
+
+.hero-section__subline {
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: clamp(0.9375rem, 1.05vw, 1.0625rem);
+  line-height: 1.55;
+  max-width: 44ch;
+  margin: 0 0 clamp(16px, 2.5vh, 28px) 0;
+  text-wrap: pretty;
+}
+
+.hero-section__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-section__actions .btn {
+  border-radius: 0 !important;
+  min-height: 48px;
+  padding: 12px 28px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  text-transform: uppercase;
+  box-shadow: none;
+  transition: transform var(--dur-fast) var(--ease-out),
+              background-color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+
+.hero-section__actions .btn--primary {
+  background-color: var(--cta);
+  color: var(--forest-950);
+  border: 1px solid var(--cta);
+}
+
+.hero-section__actions .btn--primary:hover:not(:disabled) {
+  background-color: var(--cta-hover);
+  border-color: var(--cta-hover);
+  transform: translateY(-2px);
+}
+
+.hero-section__actions .btn--secondary {
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.hero-section__actions .btn--secondary:hover:not(:disabled) {
+  border-color: var(--text);
+  color: var(--cta);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: Edge-to-Edge Visual (50% Width, Zero Curves, Sharp Edge)
+   -------------------------------------------------------------------------- */
+.hero-section__right {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--forest-900);
+  border-radius: 0 !important;
+}
+
+.hero-section__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 0 !important;
+  transform: scale(1);
+  transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  will-change: transform;
+}
+
+.hero-section__right:hover .hero-section__image {
+  transform: scale(1.025);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Design & Tablet / Mobile Adaptations
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .hero-section {
+    height: auto;
+    max-height: none;
+  }
+
+  .hero-section__split {
+    grid-template-columns: 1fr;
+    height: auto;
+    max-height: none;
+  }
+
+  .hero-section__left {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding: clamp(48px, 8vw, 72px) clamp(20px, 5vw, 36px);
+  }
+
+  .hero-section__right {
+    height: 440px;
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section__right {
+    height: 340px;
+  }
+
+  .hero-section__headline {
+    font-size: clamp(2rem, 7.5vw, 2.8rem);
+  }
+
+  .hero-section__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-section__actions .btn {
+    width: 100%;
+  }
+}

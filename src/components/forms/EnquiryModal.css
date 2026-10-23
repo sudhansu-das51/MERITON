@@ -1,0 +1,6 @@
+/* EnquiryModal styles */
+.enquiry-modal__desc {
+  color: var(--text-muted);
+  margin-bottom: var(--space-6);
+  line-height: 1.5;
+}

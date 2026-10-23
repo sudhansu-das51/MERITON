@@ -1,0 +1,13 @@
+/* NoticeBoard */
+.notice-board {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.notice-board__row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

@@ -1,0 +1,132 @@
+/* Navbar styles */
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__list {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.8vw, 22px);
+}
+
+.navbar__item {
+  position: relative;
+}
+
+.navbar__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 6px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: var(--text);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.navbar__link:hover {
+  color: var(--cta);
+}
+
+.navbar__link--text {
+  cursor: pointer;
+}
+
+.navbar__link--active {
+  color: var(--cta);
+}
+
+/* Active link chartreuse underline tick */
+.navbar__link--active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 4px;
+  right: 4px;
+  height: 2px;
+  background-color: var(--cta);
+  border-radius: 1px;
+}
+
+.navbar__dropdown-trigger-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.navbar__arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  transition: transform var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+
+.navbar__item--open .navbar__arrow-btn {
+  transform: rotate(180deg);
+  color: var(--cta);
+}
+
+.navbar__arrow-btn:hover {
+  color: var(--cta);
+}
+
+/* Dropdown Menu */
+.navbar__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  padding: var(--space-2) 0;
+  background-color: var(--forest-950);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-modal);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out),
+              visibility var(--dur-fast) var(--ease-out);
+  z-index: 100;
+}
+
+.navbar__dropdown--visible,
+.navbar__item:focus-within .navbar__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.navbar__dropdown-item {
+  width: 100%;
+}
+
+.navbar__dropdown-link {
+  display: block;
+  padding: 10px 16px;
+  font-size: var(--text-small);
+  color: var(--text-muted);
+  transition: color var(--dur-fast) var(--ease-out),
+              background-color var(--dur-fast) var(--ease-out);
+}
+
+.navbar__dropdown-link:hover,
+.navbar__dropdown-link:focus-visible {
+  color: var(--cta);
+  background-color: var(--forest-800);
+}
+
+.navbar__dropdown-link--active {
+  color: var(--cta);
+  background-color: var(--forest-800);
+  font-weight: 500;
+}

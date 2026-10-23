@@ -1,0 +1,30 @@
+/* Badge component */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  line-height: 1.2;
+}
+
+.badge--default {
+  background-color: var(--surface);
+  color: var(--text-muted);
+}
+
+.badge--accent {
+  background-color: var(--cta);
+  color: var(--cta-text);
+  border-color: var(--cta);
+}
+
+.badge--ice {
+  background-color: rgba(140, 214, 230, 0.15);
+  color: var(--ice);
+  border-color: rgba(140, 214, 230, 0.4);
+}

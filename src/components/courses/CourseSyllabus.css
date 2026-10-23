@@ -1,0 +1,46 @@
+/* CourseSyllabus styles */
+.course-syllabus {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.course-syllabus__topics {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  list-style: none;
+  padding: var(--space-4) 0 0;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .course-syllabus__topics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3) var(--space-6);
+  }
+}
+
+.course-syllabus__topic {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  color: var(--text);
+  padding: var(--space-2) 0;
+  border-bottom: 1px dashed rgba(220, 235, 227, 0.08);
+}
+
+.course-syllabus__topic-num {
+  color: var(--cta);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+.course-syllabus__topic-text {
+  color: var(--text);
+  line-height: 1.4;
+}

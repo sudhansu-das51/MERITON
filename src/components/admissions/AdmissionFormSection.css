@@ -1,0 +1,147 @@
+.admission-form-section {
+  width: 100%;
+}
+
+.admission-form-section__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .admission-form-section__grid {
+    grid-template-columns: 1fr 1.35fr;
+    gap: var(--space-10);
+  }
+}
+
+/* Left Column */
+.admission-form-section__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.admission-form-section__line {
+  color: var(--muted);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.admission-form-section__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.admission-form-section__contact-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  min-height: 52px;
+  transition: all 0.2s ease;
+}
+
+.admission-form-section__contact-link:hover {
+  background-color: var(--surface-raised);
+  border-color: var(--text);
+  transform: translateY(-1px);
+}
+
+.admission-form-section__contact-link:focus-visible {
+  outline: 2px solid var(--cta);
+  outline-offset: 2px;
+}
+
+.admission-form-section__contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--forest-900);
+  color: var(--cta);
+  flex-shrink: 0;
+}
+
+.admission-form-section__contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.admission-form-section__contact-label {
+  font-size: 0.6875rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admission-form-section__contact-val {
+  font-size: 0.9375rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Right Column: Dark Panel */
+.admission-form-section__panel {
+  background-color: var(--forest-900);
+  border: 1px solid var(--forest-700);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+
+  /* Restate dark tokens locally for high contrast inside lichen parent */
+  --bg: var(--forest-900);
+  --surface: var(--forest-900);
+  --surface-raised: var(--forest-800);
+  --text: var(--mist);
+  --muted: var(--sage);
+  --line: var(--forest-700);
+  --line-light: rgba(220, 235, 227, 0.1);
+  --cta: var(--chartreuse);
+  --cta-text: var(--forest-950);
+}
+
+@media (min-width: 640px) {
+  .admission-form-section__panel {
+    padding: var(--space-8);
+  }
+}
+
+.admission-form-section__panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-5);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line);
+}
+
+.admission-form-section__panel-title {
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.admission-form-section__panel-badge {
+  font-size: 0.6875rem;
+  color: var(--cta);
+  background-color: var(--forest-950);
+  border: 1px solid var(--line);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
