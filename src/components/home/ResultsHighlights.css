@@ -16,6 +16,9 @@
   flex-direction: column;
   gap: var(--space-8);
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 @media (min-width: 960px) {
@@ -70,6 +73,8 @@
 .results-highlights__strip-wrap {
   flex: 1;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-md);

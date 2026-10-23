@@ -13,6 +13,25 @@
     padding-top: 48px;
     padding-bottom: 48px;
   }
+
+  .final-cta__actions {
+    width: 100%;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .final-cta__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .final-cta__media-card {
+    aspect-ratio: 16 / 10;
+  }
+
+  .final-cta__media-overlay {
+    padding: var(--space-4) !important;
+  }
 }
 
 .final-cta__bg-word {

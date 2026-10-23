@@ -118,6 +118,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--forest-950);
   color: var(--mist);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -127,7 +130,20 @@ body {
   line-height: 1.6;
   background-color: var(--forest-900);
   color: var(--mist);
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  position: relative;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Accessibility Focus States */
@@ -271,6 +287,8 @@ ul, ol {
   margin-right: auto;
   padding-left: var(--container-pad);
   padding-right: var(--container-pad);
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .section {
@@ -280,6 +298,10 @@ ul, ol {
   background-color: var(--bg);
   color: var(--text);
   border-bottom: 1px solid var(--line);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  box-sizing: border-box;
 }
 
 /* Section Tones */

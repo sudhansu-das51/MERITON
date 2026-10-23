@@ -384,6 +384,19 @@
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
 }
 
+@media (max-width: 479px) {
+  .subject-floating-stats {
+    margin: var(--space-3);
+    padding: 10px 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .subject-stat-col__val {
+    font-size: 1rem;
+  }
+}
+
 @media (min-width: 640px) {
   .subject-floating-stats {
     margin: var(--space-5);
